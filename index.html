@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Game Helper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Roblox Game Helper</h1>
+        <p>Click the button below to get a random game tip!</p>
+        <button onclick="getRandomTip()">Get Tip</button>
+        <p id="tip"></p>
+        <p><strong>Fun Fact (Blox Fruits):</strong> 🔹 The Rarest Fruit in the Game? The Leopard Fruit is one of the rarest and most expensive fruits in the game, costing 5,000,000 Beli or 3,000 Robux! It's also one of the few fruits that transforms your character, giving unique abilities.</p>
+    </div>
+
+    <script>
+        const tips = {
+            "Blox Fruits": [
+                "Always grind near NPCs your level to level up faster!",
+                "Use Logia fruits to avoid damage from weak enemies!",
+                "Bosses respawn every 20 minutes—farm them for good drops!"
+            ],
+            "Fisch": [
+                "Use the fishing rod upgrades for better catches!",
+                "Complete daily quests for bonus rewards!",
+                "Trade fish with other players to earn more money!"
+            ],
+            "Adopt Me": [
+                "Do tasks with your pet to earn Bucks faster!",
+                "Trading rare pets can be more profitable than selling items!"
+            ]
+        };
+
+        function getRandomTip() {
+            const games = Object.keys(tips);
+            const randomGame = games[Math.floor(Math.random() * games.length)];
+            const gameTips = tips[randomGame];
+            const randomTip = gameTips[Math.floor(Math.random() * gameTips.length)];
+            document.getElementById("tip").innerHTML = `<strong>${randomGame}</strong>: ${randomTip}`;
+        }
+    </script>
+</body>
+</html>
